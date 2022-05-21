@@ -21,10 +21,10 @@ public class UserRepositoryTests {
     @Test
     public void testAddNew() {
         User user = new User();
-        user.setEmail("martin.schober@web.com");
+        user.setEmail("john.doe@web.com");
         user.setPassword("password");
-        user.setFirstName("Martin");
-        user.setLastName("Schober");
+        user.setFirstName("John");
+        user.setLastName("Doe");
 
         User savedUser = repo.save(user);
 
@@ -47,11 +47,11 @@ public class UserRepositoryTests {
         Integer userId = 2;
         Optional<User> optionalUser = repo.findById(userId);
         User user = optionalUser.get();
-        user.setLastName("Schober");
+        user.setLastName("Doe");
         repo.save(user);
 
         User updatedUser = repo.findById(userId).get();
-        Assertions.assertThat(updatedUser.getLastName()).isEqualTo("Schober");
+        Assertions.assertThat(updatedUser.getLastName()).isEqualTo("Doe");
     }
 
     @Test
